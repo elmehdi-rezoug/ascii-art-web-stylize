@@ -1,0 +1,143 @@
+:root {
+  --charcoal: #191919;
+  --crimson-dark: #750e21;
+  --burnt-orange: #e3651d;
+  --lime: #bed754;
+  --grey: #b0b0b0;
+  --radius: 3px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--charcoal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: monospace;
+  height: 100vh;
+  padding: 20px;
+  gap: 2%;
+}
+.section {
+  width: 60%;
+  height: 50%;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#labels-holder {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+  align-items: center;
+  height: 20%;
+  width: 90%;
+  max-width: 90%;
+}
+span:nth-child(1) {
+  color: var(--burnt-orange);
+}
+span:nth-child(2) {
+  color: var(--grey);
+}
+span:nth-child(3) {
+  color: var(--burnt-orange);
+}
+span:nth-child(4) {
+  color: var(--lime);
+}
+
+h1,
+h2 {
+  margin-bottom: 10px;
+  height: 10%;
+}
+h2 {
+  color: var(--burnt-orange);
+}
+form {
+  background-color: var(--crimson-dark);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7%;
+  border-radius: 5px;
+  padding: 3% 0;
+  height: 90%;
+}
+textarea {
+  background-color: var(--charcoal);
+  border-radius: var(--radius);
+  width: 90%;
+  color: var(--grey);
+  height: 60%;
+  font-family: monospace;
+}
+textarea:focus {
+  outline: none;
+  border-color: var(--grey);
+}
+label {
+  background-color: var(--burnt-orange);
+  height: 100%;
+  flex: 1;
+  border: 1.5px solid transparent;
+}
+label,
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  text-align: center;
+  color: var(--charcoal);
+  border-radius: var(--radius);
+  font-size: 15px;
+  cursor: pointer;
+}
+label:hover,
+button:hover {
+  filter: brightness(1.5);
+  transform: scale(1.01);
+}
+label:active,
+button:active {
+  opacity: 0.5;
+}
+
+input[type='radio'] {
+  appearance: none;
+}
+label:has(input[type='radio']:checked) {
+  border-color: var(--lime);
+  box-sizing: border-box;
+}
+button {
+  background-color: var(--lime);
+  border: none;
+  font-family: inherit;
+  height: 20%;
+  width: 90%;
+}
+#pre-holder {
+  background-color: var(--crimson-dark);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  padding: 3% 0;
+  height: 90%;
+}
+pre {
+  width: 90%;
+  height: 100%;
+  background-color: var(--charcoal);
+  color: var(--grey);
+  overflow: auto;
+}
