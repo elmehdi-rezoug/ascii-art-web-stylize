@@ -101,7 +101,7 @@ button {
   align-items: center;
   text-align: center;
   border-radius: var(--radius);
-  font-size: 15px;
+  font-size: 17px;
   cursor: pointer;
 }
 
@@ -126,7 +126,7 @@ label {
   text-align: center;
   color: var(--black);
   border-radius: var(--radius);
-  font-size: 15px;
+  font-size: 17px;
   cursor: pointer;
 }
 
@@ -236,6 +236,10 @@ span:nth-child(4) {
     height: 95%;
     font-size: 22px;
   }
+  label,
+  button {
+    font-size: 16px;
+  }
 }
 
 @media (min-width: 601px) and (max-width: 1200px) {
@@ -243,5 +247,9 @@ span:nth-child(4) {
     height: 95%;
     margin: none;
     font-size: 40px;
+  }
+  label,
+  button {
+    font-size: 15px;
   }
 }
