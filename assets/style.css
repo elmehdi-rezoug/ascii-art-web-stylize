@@ -147,6 +147,11 @@ pre {
   border-radius: var(--radius);
 }
 
+p {
+  color: var(--white);
+  background-color: #08cb00;
+}
+
 span:nth-child(1) {
   color: var(--primary-green);
 }

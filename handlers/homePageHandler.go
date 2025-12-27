@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"bytes"
-	"fmt"
 	"html/template"
 	"net/http"
 )
@@ -12,31 +11,26 @@ type Data struct {
 }
 
 func HomePageHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("")
 	if r.URL.Path != "/" {
-		w.WriteHeader(http.StatusNotFound)
-		w.Write([]byte("404 not found"))
+		ErrorHandler(w, "404 not found", http.StatusNotFound)
 		return
 	}
 
-	if r.Method != "GET" {
-		w.WriteHeader(http.StatusMethodNotAllowed)
-		w.Write([]byte("405 method not allowed"))
+	if r.Method != http.MethodGet {
+		ErrorHandler(w, "405 method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
 
 	tmpl, err := template.ParseFiles("templates/index.html")
 	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte("500 internal server error"))
+		ErrorHandler(w, "500 internal server error", http.StatusInternalServerError)
 		return
 	}
 
 	var buff bytes.Buffer
 	err = tmpl.Execute(&buff, nil)
 	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte("500 internal server error"))
+		ErrorHandler(w, "500 internal server error", http.StatusInternalServerError)
 		return
 	}
 	w.Write(buff.Bytes())
