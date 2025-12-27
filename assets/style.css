@@ -232,7 +232,6 @@ span:nth-child(4) {
     height: 20%;
   }
   p {
-    margin: none;
     height: 95%;
     font-size: 22px;
   }
@@ -245,7 +244,6 @@ span:nth-child(4) {
 @media (min-width: 601px) and (max-width: 1200px) {
   p {
     height: 95%;
-    margin: none;
     font-size: 40px;
   }
   label,
