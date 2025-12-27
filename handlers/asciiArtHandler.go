@@ -8,10 +8,6 @@ import (
 	"ascii-art-web/asciigenerator"
 )
 
-type Data struct {
-	Output string
-}
-
 func AsciiArtHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "POST" {
 		w.WriteHeader(http.StatusMethodNotAllowed)

@@ -7,6 +7,10 @@ import (
 	"net/http"
 )
 
+type Data struct {
+	Output string
+}
+
 func HomePageHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("")
 	if r.URL.Path != "/" {
