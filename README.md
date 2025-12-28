@@ -1,4 +1,4 @@
-# ASCII Art Web Sylize
+# ASCII Art Web Stylize
 
 ## Description
 
