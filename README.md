@@ -1,80 +1,84 @@
-# ASCII Art Web
+# ASCII Art Web Sylize
 
 ## Description
 
-A web app that turns your text into cool ascii art.
-choose from three banner styles (standard, shadow or thinkertoy), type something, and watch it transform into ascii art. built with go and html.
+A web application that converts text into ASCII art using different banner styles. Built with Go and HTML and CSS, featuring a clean interface for transforming text into stylized ASCII representations.
 
 ## Authors
 
-- mohammed amine el bouziani (@melbouzi)
-- elmehdi rezoug (@erezzoug)
-- aymane bouzerda (@abouzerd)
+- Mohammed Amine El Bouziani (@melbouzi)
+- Elmehdi Rezoug (@erezzoug)
+- Aymane Bouzerda (@abouzerd)
 
 ## Usage
 
 ### Running the Server
 
 ```bash
-git clone https://learn.zone01oujda.ma/git/melbouzi/ascii-art-web
-cd ascii-art-web
+git clone https://learn.zone01oujda.ma/git/erezzoug/ascii-art-web-stylize
+cd ascii-art-web-stylize
 go run .
 ```
 
-then open `http://localhost:8080` in your browser.
+Then open `http://localhost:8080` in your browser.
 
 ### Using the App
 
-1. type your text in the textarea
-2. pick a banner style (radio buttons)
-3. hit submit
-4. see your ascii art appear below
+1. Enter your text in the textarea
+2. Select a banner style (Standard, Shadow, or Thinkertoy)
+3. Click Submit
+4. View your generated ASCII art
 
 ## Implementation Details
 
-### How It Works
+### Algorithm
 
-**the algorithm:**
+Each banner file contains 856 lines representing 8 lines of ASCII art per character (ASCII 32-126) plus spacing.
 
-each banner file has 856 lines, that's 8 lines of art for each printable character ascii 32-126 plus spacing.
-when you submit text, here's what happens:
+**Processing flow:**
+1. Validate input (printable ASCII characters only)
+2. Load selected banner file
+3. For each character:
+   - Calculate line index: `(ASCII_code - 32) × 9 + line_height`
+   - Extract 8 lines from banner
+   - Concatenate horizontally
+4. Build final output
 
-1. we validate your input (only printable characters allowed)
-2. load the banner file you chose
-3. for each character in your text:
-   - calculate which lines to grab: `(character ascii code - 32) × 9 + line_height`
-   - pull those 8 lines from the banner
-   - stack them horizontally to form your character
-4. repeat for all characters, building the final output
+**Routes:**
+- `GET /` → Main page with form
+- `POST /ascii-art` → Process text and return ASCII art
+- `GET /style.css` → CSS stylesheet
 
-**routes:**
-- `GET /` → main page with the form
-- `POST /ascii-art` → processes your text and returns the art
-
-**error handling:**
-- 200 - everything worked
-- 400 - bad input (invalid characters or banner)
-- 404 - page not found
-- 405 - wrong http method
-- 500 - something broke on our end
+**HTTP Status Codes:**
+- 200 - Success
+- 400 - Invalid input or banner
+- 404 - Page not found
+- 405 - Invalid HTTP method
+- 500 - Internal server error
 
 ### Project Structure
 
 ```
 ascii-art-web/
 ├── asciigenerator/
-│   ├── generator.go    
-│   └── utils.go       
+│   ├── generator.go
+│   └── utils.go
+├── handlers/
+│   ├── homePageHandler.go
+│   ├── asciiArtHandler.go
+│   ├── cssHandler.go
+│   └── errorHandler.go
 ├── banners/
-│   ├── standard.txt   
-│   ├── shadow.txt      
-│   └── thinkertoy.txt  
+│   ├── standard.txt
+│   ├── shadow.txt
+│   └── thinkertoy.txt
 ├── templates/
-│   └── index.html      
-├── homePageHandler.go     
-├── asciiArtHandler.go      
-├── main.go           
-└── go.mod             
+│   ├── index.html
+│   └── error.html
+├── assets/
+│   └── style.css
+├── main.go
+└── go.mod
 ```
 
-Built with go standard library.
+Built using Go standard library.
