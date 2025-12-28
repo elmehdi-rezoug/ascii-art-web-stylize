@@ -248,7 +248,7 @@ span:nth-child(4) {
   }
   label,
   button {
-    font-size: 16px;
+    font-size: 15px;
   }
 }
 
@@ -259,6 +259,7 @@ span:nth-child(4) {
   }
   label,
   button {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
+
