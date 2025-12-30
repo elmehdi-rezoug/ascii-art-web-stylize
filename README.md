@@ -59,7 +59,7 @@ Each banner file contains 856 lines representing 8 lines of ASCII art per charac
 ### Project Structure
 
 ```
-ascii-art-web/
+ascii-art-web-stylize/
 ├── asciigenerator/
 │   ├── generator.go
 │   └── utils.go
