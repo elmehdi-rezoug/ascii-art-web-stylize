@@ -15,7 +15,7 @@ A web application that converts text into ASCII art using different banner style
 ### Running the Server
 
 ```bash
-git clone https://learn.zone01oujda.ma/git/erezzoug/ascii-art-web-stylize
+git clone https://github.com/elmehdi-rezoug/ascii-art-web-stylize.git
 cd ascii-art-web-stylize
 go run .
 ```
